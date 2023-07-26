@@ -1,4 +1,4 @@
-# Taxi_Nyc_Stream_Analytics
+# Taxi_Stream_Analytics
 ## Introduction
 
 Welcome to the Real-Time Taxi Trip Data Processing project with AWS Kinesis and DynamoDB! This project is designed to ingest data from a Kinesis stream and store it in a DynamoDB table using AWS Lambda. The Kinesis stream is fed by a data generator that generates JSON records representing taxi trips.
@@ -6,7 +6,7 @@ Welcome to the Real-Time Taxi Trip Data Processing project with AWS Kinesis and 
 
 ## Architecture
 
-![text alternatif](https://github.com/yassinetaiki/Aws_Kafka_Glue_Athena_DataPipeline/blob/master/architecture.png)
+![text alternatif](https://github.com/yassinetaiki/Taxi_Nyc_Stream_Analytics/blob/master/architecture.PNG)
 
 ## Repository Contents
 
@@ -23,4 +23,12 @@ When the state is complete for a processing window, the results are stored in th
 - `AWS Lambda`: AWS Lambda is a serverless compute service that allows you to run code without managing servers. It was used to process the incoming data from the Kinesis stream in real-time and aggregate the results for each taxi vendor.
 
 - `Amazon DynamoDB`: Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. In this project, DynamoDB was used to store the aggregated results for each taxi vendor, using 'vendorId' as the primary key for efficient data retrieval.
+
+- `Amazon Kinesis Data Firehose`: Amazon Kinesis Data Firehose is a fully managed service that allows you to capture, transform, and load streaming data into data stores and analytics tools. In this project, we could use Kinesis Data Firehose to load the data from the Kinesis stream directly into Amazon S3.
+
+- `Amazon S3` (Simple Storage Service): Amazon S3 is a scalable object storage service that offers industry-leading durability, availability, and performance. In this project, we could use S3 to store the raw data streamed from Kinesis or the processed data for further analysis or long-term storage.
+
+- `AWS Glue Catalog`: AWS Glue Catalog is a fully managed metadata catalog that allows you to discover, catalog, and share metadata for your data assets. In this project, we could use Glue Catalog to maintain metadata about the data stored in S3, making it easier to query and analyze the data with Amazon Athena.
+
+- `Amazon Athena`: Amazon Athena is an interactive query service that enables you to analyze data directly from Amazon S3 using standard SQL. In this project, we could use Athena to run SQL queries on the data stored in S3 through the Glue Catalog without the need for complex data pipelines.
 
